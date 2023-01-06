@@ -29,7 +29,6 @@ const Price = styled.p`
 `;
 
 const Cotizacion = ({ cotizacion }) => {
-  console.log(cotizacion);
   const { PRICE, HIGHDAY, LOWDAY, CHANGEPCT24HOUR, IMAGEURL, LASTUPDATE } =
     cotizacion;
   return (

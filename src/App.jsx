@@ -53,10 +53,10 @@ const App = () => {
       setCotizacion({})
       const requestAPI = async () => {
         const {moneda, cripto} = monedas
-        const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${moneda}&tsyms=${cripto}`
+        const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cripto}&tsyms=${moneda}`
         const response = await fetch(url)
         const result = await response.json()
-        setCotizacion(result.DISPLAY[moneda][cripto])
+        setCotizacion(result.DISPLAY[cripto][moneda])
         setLoading(false)
       }
       requestAPI()

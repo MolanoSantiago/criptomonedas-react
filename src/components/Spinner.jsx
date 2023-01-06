@@ -1,5 +1,3 @@
-import styled from "@emotion/styled";
-
 const Spinner = () => {
   return (
     <div className="spinner">

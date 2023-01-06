@@ -22,10 +22,13 @@ const InputSubmit = styled.input`
   }
 `;
 
-const Formulario = ({setMonedas}) => {
+const Formulario = ({ setMonedas }) => {
   const [criptos, setCriptos] = useState([]);
   const [moneda, SelectMonedas] = useSelectMonedas("Elige tu moneda", monedas);
-  const [cripto, SelectCriptoMonedas] = useSelectMonedas("Elige tu criptomoneda", criptos);
+  const [cripto, SelectCriptoMonedas] = useSelectMonedas(
+    "Elige tu criptomoneda",
+    criptos
+  );
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -46,7 +49,8 @@ const Formulario = ({setMonedas}) => {
       //     );
       //   setCriptos(criptoArr);
       //   return criptoArr
-      const url = "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD";
+      const url =
+        "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD";
       const response = await fetch(url);
       const result = await response.json();
       const criptoArr = result.Data.map((cripto) => {
@@ -67,8 +71,8 @@ const Formulario = ({setMonedas}) => {
       setError(false);
       setMonedas({
         moneda,
-        cripto
-      })
+        cripto,
+      });
     } else {
       setError(true);
     }
